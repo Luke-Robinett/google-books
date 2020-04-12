@@ -30,6 +30,8 @@ class Search extends React.Component {
     handleSaveButtonClick = event => {
         event.preventDefault();
         const bookId = event.target.getAttribute("bookId");
+        const targetBook = this.state.books.find(book => book.id === bookId);
+        api.saveBook(targetBook);
     };
 
     render() {

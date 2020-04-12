@@ -7,6 +7,10 @@ const api = {
         axios.get(`https://www.googleapis.com/books/v1/volumes?q=${title}&key=${apiKey}`)
             .then(response => cb(null, response))
             .catch(error => cb(error));
+    },
+
+    saveBook: book => {
+        console.log(`Saved book with title ${book.volumeInfo.title}`);
     }
 };
 
