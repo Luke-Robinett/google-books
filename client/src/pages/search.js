@@ -1,6 +1,6 @@
 import React from "react";
 import SearchForm from "../components/search-form";
-import SearchResults from "../components/search-results";
+import BookList from "../components/book-list";
 import api from "../utils/api";
 
 class Search extends React.Component {
@@ -38,7 +38,7 @@ class Search extends React.Component {
                 />
                 <hr />
                 <h3>Results</h3>
-                <SearchResults books={this.state.books} />
+                <BookList books={this.state.books} />
             </div>
         )
     }

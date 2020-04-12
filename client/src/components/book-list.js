@@ -1,14 +1,14 @@
 import React from "react";
-import SearchResult from "./search-result";
+import BookItem from "./book-item";
 
-function SearchResults(props) {
+function BookList(props) {
     if (props.books.length > 0) {
         return (
             <div>
                 {
                     props.books.map((book, index) => {
                         return (
-                            <SearchResult
+                            <BookItem
                                 key={index}
                                 book={book.volumeInfo}
                             />
@@ -19,9 +19,9 @@ function SearchResults(props) {
         )
     } else {
         return (
-            <h4>No Results Found</h4>
+            <h4>No Books To Display</h4>
         )
     }
 }
 
-export default SearchResults;
+export default BookList;
