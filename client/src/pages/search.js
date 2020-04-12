@@ -1,11 +1,12 @@
 import React from "react";
-import SearchForm from "../components/searchForm";
-import SearchResults from "../components/SearchResults";
+import SearchForm from "../components/search-form";
+import SearchResults from "../components/search-results";
+import api from "../utils/api";
 
 class Search extends React.Component {
     state = {
         searchString: "",
-        results: []
+        books: []
     };
 
     handleChange = event => this.setState({ searchString: event.target.value });
@@ -13,13 +14,17 @@ class Search extends React.Component {
     handleSubmit = event => {
         event.preventDefault();
 
-        const results = [
-            { title: "Oh Yeah" },
-            { title: "Something Cool" },
-            { title: "Why The Heck Not?" }
-        ];
-
-        this.setState({ results: results });
+        api.findBooks(this.state.searchString, (err, response) => {
+            if (err) {
+                return console.error(err);
+            }
+            console.log(response);
+            if (response.data.totalItems > 0) {
+                this.setState({ books: response.data.items });
+            } else {
+                this.setState({ books: [] });
+            }
+        });
     };
 
     render() {
@@ -33,7 +38,7 @@ class Search extends React.Component {
                 />
                 <hr />
                 <h3>Results</h3>
-                <SearchResults results={this.state.results} />
+                <SearchResults results={this.state.books} />
             </div>
         )
     }
