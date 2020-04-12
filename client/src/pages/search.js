@@ -27,6 +27,11 @@ class Search extends React.Component {
         });
     };
 
+    handleSaveButtonClick = event => {
+        event.preventDefault();
+        const bookId = event.target.getAttribute("bookId");
+    };
+
     render() {
         return (
             <div className="container">
@@ -39,7 +44,10 @@ class Search extends React.Component {
                 <br />
                 <h3>Results</h3>
                 <p>Click on a book's title to view it on Google Books. Click the + (plus) icon to add the book to your saved books.</p>
-                <BookList books={this.state.books} />
+                <BookList
+                    books={this.state.books}
+                    handleSaveButtonClick={this.handleSaveButtonClick}
+                />
             </div>
         )
     }

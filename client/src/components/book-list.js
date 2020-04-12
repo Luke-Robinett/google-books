@@ -8,10 +8,11 @@ function BookList(props) {
                 {
                     props.books.map((book, index) => {
                         return (
-                            <div role="listitem">
+                            <div role="listitem" key={index}>
                                 <BookItem
-                                    key={index}
                                     book={book.volumeInfo}
+                                    bookId={book.id}
+                                    handleSaveButtonClick={props.handleSaveButtonClick}
                                 />
                                 { // Add a separator after all but the final entry in the list
                                     (index < (props.books.length - 1))
