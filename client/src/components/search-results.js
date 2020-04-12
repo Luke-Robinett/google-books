@@ -1,17 +1,21 @@
 import React from "react";
+import SearchResult from "./search-result";
 
 function SearchResults(props) {
-    if (props.results.length > 0) {
+    if (props.books.length > 0) {
         return (
-            <ul>
+            <div>
                 {
-                    props.results.map((result, index) => {
+                    props.books.map((book, index) => {
                         return (
-                            <li key={index}>{result.volumeInfo.title}</li>
+                            <SearchResult
+                                key={index}
+                                book={book.volumeInfo}
+                            />
                         )
                     })
                 }
-            </ul>
+            </div>
         )
     } else {
         return (

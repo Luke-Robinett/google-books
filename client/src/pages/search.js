@@ -29,7 +29,7 @@ class Search extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <h2>Search</h2>
                 <SearchForm
                     searchString={this.state.searchString}
@@ -38,7 +38,7 @@ class Search extends React.Component {
                 />
                 <hr />
                 <h3>Results</h3>
-                <SearchResults results={this.state.books} />
+                <SearchResults books={this.state.books} />
             </div>
         )
     }
