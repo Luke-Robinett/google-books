@@ -4,11 +4,11 @@ import BookItem from "./book-item";
 function BookList(props) {
     if (props.books.length > 0) {
         return (
-            <div>
+            <div role="list">
                 {
                     props.books.map((book, index) => {
                         return (
-                            <div>
+                            <div role="listitem">
                                 <BookItem
                                     key={index}
                                     book={book.volumeInfo}

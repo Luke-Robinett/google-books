@@ -38,7 +38,7 @@ class Search extends React.Component {
                 />
                 <br />
                 <h3>Results</h3>
-                <p>Click on a book's title to view it on Google Books</p>
+                <p>Click on a book's title to view it on Google Books. Click the + (plus) icon to add the book to your saved books.</p>
                 <BookList books={this.state.books} />
             </div>
         )
