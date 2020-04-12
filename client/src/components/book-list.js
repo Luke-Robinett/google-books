@@ -8,10 +8,17 @@ function BookList(props) {
                 {
                     props.books.map((book, index) => {
                         return (
-                            <BookItem
-                                key={index}
-                                book={book.volumeInfo}
-                            />
+                            <div>
+                                <BookItem
+                                    key={index}
+                                    book={book.volumeInfo}
+                                />
+                                { // Add a separator after all but the final entry in the list
+                                    (index < (props.books.length - 1))
+                                        ? <hr />
+                                        : ""
+                                }
+                            </div>
                         )
                     })
                 }

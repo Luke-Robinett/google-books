@@ -36,8 +36,9 @@ class Search extends React.Component {
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}
                 />
-                <hr />
+                <br />
                 <h3>Results</h3>
+                <p>Click on a book's title to view it on Google Books</p>
                 <BookList books={this.state.books} />
             </div>
         )
