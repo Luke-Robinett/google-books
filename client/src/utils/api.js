@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const apiKey = "AIzaSyDN2taYwD5rUOTnXEVucFgo1tcI6Nvonpk";
+const baseUrl = "http://localhost:3001";
 
 const api = {
     findBooks: (title, cb) => {
@@ -10,7 +11,15 @@ const api = {
     },
 
     saveBook: book => {
-        console.log(`Saved book with title ${book.volumeInfo.title}`);
+        axios.post(`${baseUrl}/api/books`, { book: book })
+            .then(response => console.log(response))
+            .catch(() => console.log("Couldn't save."));
+    },
+
+    test: () => {
+        axios.get(`${baseUrl}/api`)
+            .then(response => console.log(response))
+            .catch(error => console.log(error));
     }
 };
 
