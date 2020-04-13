@@ -10,6 +10,12 @@ const api = {
             .catch(error => cb(error));
     },
 
+    getSavedBooks: (cb) => {
+        axios.get(`${baseUrl}/api/books`)
+        .then(response => cb(null, response))
+        .catch(error => cb(error));
+    },
+
     saveBook: (book, cb) => {
         axios.post(`${baseUrl}/api/books`, { book: book })
             .then(response => cb(null, response))
