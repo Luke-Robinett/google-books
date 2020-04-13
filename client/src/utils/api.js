@@ -20,6 +20,45 @@ const api = {
         axios.get(`${baseUrl}/api`)
             .then(response => console.log(response))
             .catch(error => console.log(error));
+    },
+
+    parseGoogleBooksResponse: response => {
+        // Use destructuring with default values to transform the API response as needed
+        const {
+            data: {
+                items = []
+            } = null
+        } = response;
+
+        // Transform each element in the array
+        const books = items.map(item => {
+            const {
+                id = "",
+                volumeInfo: {
+                    title = "(No Title)",
+                    subtitle = "",
+                    authors = [],
+                    description = "",
+                    infoLink = "",
+                    imageLinks: {
+                        thumbnail = ""
+                    } = null
+                } = null
+            } = item;
+
+            // Return an object whose keys match the format of our Mongoose Book model
+            return ({
+                bookId: id,
+                title: title,
+                subtitle: title,
+                description: description,
+                image: thumbnail,
+                link: infoLink
+            });
+        });
+
+        // Return the newly formatted array of books
+        return books;
     }
 };
 

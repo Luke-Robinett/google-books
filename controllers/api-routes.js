@@ -11,9 +11,10 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
 
 // API Routes
 
+// Save a book from the search results
 router.post("/api/books", (req, res) => {
     const { book } = req.body;
-    console.log(JSON.stringify(book));
+    
     res.send(`Saved book with title of ${book.volumeInfo.title}`);
 });
 
