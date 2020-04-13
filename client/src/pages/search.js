@@ -18,25 +18,25 @@ class Search extends React.Component {
             if (err) {
                 return console.error(err);
             }
-            console.log(response);
-            if (response.data.totalItems > 0) {
-                this.setState({ books: response.data.items });
-            } else {
-                this.setState({ books: [] });
-            }
+
+            this.setState({
+                books: api.parseGoogleBooksResponse(response)
+            });
+            console.log(this.state.books);
         });
     };
 
     handleSaveButtonClick = event => {
         event.preventDefault();
-        const bookId = event.target.getAttribute("bookId");
-        const targetBook = this.state.books.find(book => book.id === bookId);
+
+        const bookId = event.target.getAttribute("dataid");
+        const targetBook = this.state.books.find(book => book.bookId === bookId);
+        console.log("Book ID: " + bookId);
         api.saveBook(targetBook, (err, response) => {
             if (err) {
-                return console.log(err);
+                return console.error(err);
             }
-            const savedBook = response.data;
-            alert(`${savedBook.title} saved!`);
+            console.log(response);
         });
     };
 
@@ -51,10 +51,11 @@ class Search extends React.Component {
                 />
                 <br />
                 <h3>Results</h3>
-                <p>Click on a book's title to view it on Google Books. Click the + (plus) icon to add the book to your saved books.</p>
+                <p>Click on a book's title to view it on Google Books. Click the Save button to add the book to your saved books.</p>
                 <BookList
                     books={this.state.books}
-                    handleSaveButtonClick={this.handleSaveButtonClick}
+                    handleActionButtonClick={this.handleSaveButtonClick}
+                    actionButtonText="Save"
                 />
             </div>
         )

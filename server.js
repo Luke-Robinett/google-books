@@ -1,6 +1,5 @@
 // Used the server.js file provided in the MERN lesson's supplemental materials folder as a starting point for this file
 const express = require("express");
-const path = require("path");
 const router = require("./controllers/api-routes");
 
 // Express configuration

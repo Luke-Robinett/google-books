@@ -2,20 +2,26 @@ import React from "react";
 import BookItem from "./book-item";
 
 function BookList(props) {
-    if (props.books.length > 0) {
+    const {
+        books = [],
+        handleActionButtonClick = null,
+        actionButtonText = ""
+    } = props;
+
+    if (books.length > 0) {
         return (
             <div role="list">
                 {
-                    props.books.map((book, index) => {
+                    books.map((book, index) => {
                         return (
                             <div role="listitem" key={index}>
                                 <BookItem
-                                    book={book.volumeInfo}
-                                    bookId={book.id}
-                                    handleSaveButtonClick={props.handleSaveButtonClick}
+                                    book={book}
+                                    handleActionButtonClick={handleActionButtonClick}
+                                    actionButtonText={actionButtonText}
                                 />
                                 { // Add a separator after all but the final entry in the list
-                                    (index < (props.books.length - 1))
+                                    (index < (books.length - 1))
                                         ? <hr />
                                         : ""
                                 }

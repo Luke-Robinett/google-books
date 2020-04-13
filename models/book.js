@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 // Define book schema
 const BookSchema = new Schema({
+    bookId: {
+        type: String,
+        required: true
+    },
     title: String,
     authors: Array,
     description: String,

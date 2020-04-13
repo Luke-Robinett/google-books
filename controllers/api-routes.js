@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const cors = require("cors");
 const router = express.Router();
 const mongoose = require("mongoose");
@@ -11,19 +12,20 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
 
 // API Routes
 
+// Save a book from the search results
 router.post("/api/books", (req, res) => {
-    let { book } = req.body;
-    
-    const newBook = new Book();
+    const { book } = req.body;
 
-    newBook.title = book.volumeInfo.title;
-    newBook.authors = book.volumeInfo.authors;
-    newBook.description = book.volumeInfo.description;
-    newBook.image = book.volumeInfo.imageLinks.thumbnail;
-    newBook.link = book.volumeInfo.infoLink;
+    const newBook = new Book(book);
 
     newBook.save()
-        .then(response => res.json(response.toJSON()))
+        .then(response => res.json(response))
+        .catch(error => res.json(error));
+});
+
+router.get("/api/books", (req, res) => {
+    Book.find()
+        .then(response => res.json(response))
         .catch(error => res.json(error));
 });
 
