@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const cors = require("cors");
 const router = express.Router();
 const mongoose = require("mongoose");
@@ -14,8 +15,18 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
 // Save a book from the search results
 router.post("/api/books", (req, res) => {
     const { book } = req.body;
-    
-    res.send(`Saved book with title of ${book.volumeInfo.title}`);
+
+    const newBook = new Book(book);
+
+    newBook.save()
+        .then(response => res.json(response))
+        .catch(error => res.json(error));
+});
+
+router.get("/api/books", (req, res) => {
+    Book.find()
+        .then(response => res.json(response))
+        .catch(error => res.json(error));
 });
 
 router.get("/api", (req, res) => res.json({ message: "API is up and running, captain!" }));

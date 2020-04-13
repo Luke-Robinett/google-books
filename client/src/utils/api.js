@@ -10,10 +10,10 @@ const api = {
             .catch(error => cb(error));
     },
 
-    saveBook: book => {
+    saveBook: (book, cb) => {
         axios.post(`${baseUrl}/api/books`, { book: book })
-            .then(response => console.log(response))
-            .catch(() => console.log("Couldn't save."));
+            .then(response => cb(null, response))
+            .catch(error => cb(error));
     },
 
     test: () => {
@@ -50,7 +50,8 @@ const api = {
             return ({
                 bookId: id,
                 title: title,
-                subtitle: title,
+                subtitle: subtitle,
+                authors: authors,
                 description: description,
                 image: thumbnail,
                 link: infoLink

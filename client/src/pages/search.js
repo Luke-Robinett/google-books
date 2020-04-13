@@ -22,6 +22,7 @@ class Search extends React.Component {
             this.setState({
                 books: api.parseGoogleBooksResponse(response)
             });
+            console.log(this.state.books);
         });
     };
 
@@ -30,7 +31,13 @@ class Search extends React.Component {
 
         const bookId = event.target.getAttribute("dataid");
         const targetBook = this.state.books.find(book => book.bookId === bookId);
-        api.saveBook(targetBook);
+        console.log("Book ID: " + bookId);
+        api.saveBook(targetBook, (err, response) => {
+            if (err) {
+                return console.error(err);
+            }
+            console.log(response);
+        });
     };
 
     render() {

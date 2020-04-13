@@ -4,7 +4,7 @@ import ActionButton from "./action-button";
 function BookItem(props) {
     const {
         book: {
-            id,
+            bookId = "",
             title = "(No Title)",
             subtitle = "",
             authors = [],
@@ -29,7 +29,7 @@ function BookItem(props) {
                     <h4>{subtitle}</h4>
                 </a>
                 <ActionButton
-                    dataid={id}
+                    dataid={bookId}
                     handleClick={handleActionButtonClick}
                     text={actionButtonText}
                 />
