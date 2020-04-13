@@ -12,9 +12,19 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
 // API Routes
 
 router.post("/api/books", (req, res) => {
-    const { book } = req.body;
-    console.log(JSON.stringify(book));
-    res.send(`Saved book with title of ${book.volumeInfo.title}`);
+    let { book } = req.body;
+    
+    const newBook = new Book();
+
+    newBook.title = book.volumeInfo.title;
+    newBook.authors = book.volumeInfo.authors;
+    newBook.description = book.volumeInfo.description;
+    newBook.image = book.volumeInfo.imageLinks.thumbnail;
+    newBook.link = book.volumeInfo.infoLink;
+
+    newBook.save()
+        .then(response => res.json(response.toJSON()))
+        .catch(error => res.json(error));
 });
 
 router.get("/api", (req, res) => res.json({ message: "API is up and running, captain!" }));
