@@ -12,8 +12,8 @@ const api = {
 
     getSavedBooks: (cb) => {
         axios.get(`${baseUrl}/api/books`)
-        .then(response => cb(null, response))
-        .catch(error => cb(error));
+            .then(response => cb(null, response))
+            .catch(error => cb(error));
     },
 
     saveBook: (book, cb) => {
@@ -22,10 +22,10 @@ const api = {
             .catch(error => cb(error));
     },
 
-    test: () => {
-        axios.get(`${baseUrl}/api`)
-            .then(response => console.log(response))
-            .catch(error => console.log(error));
+    deleteBook: (bookId, cb) => {
+        axios.delete(`${baseUrl}/api/books/${bookId}`)
+            .then(response => cb(null, response))
+            .catch(error => cb(error));
     },
 
     parseGoogleBooksResponse: response => {

@@ -23,13 +23,21 @@ router.post("/api/books", (req, res) => {
         .catch(error => res.json(error));
 });
 
+// Get all saved books
 router.get("/api/books", (req, res) => {
     Book.find()
         .then(response => res.json(response))
         .catch(error => res.json(error));
 });
 
-router.get("/api", (req, res) => res.json({ message: "API is up and running, captain!" }));
+// Delete a saved book
+router.delete("/api/books/:id", (req, res) => {
+    const { id } = req.params;
+    
+    Book.deleteOne({ bookId: id })
+        .then(response => res.json(response))
+        .catch(error => res.json(error));
+});
 
 // Route for React app
 router.get("*", function (req, res) {

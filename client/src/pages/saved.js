@@ -11,17 +11,18 @@ class Saved extends React.Component {
         event.preventDefault();
 
         const bookId = event.target.getAttribute("dataid");
-        const targetBook = this.state.books.find(book => book.bookId === bookId);
-        console.log("Book ID to delete: " + bookId);
-        // api.saveBook(targetBook, (err, response) => {
-        //     if (err) {
-        //         return console.error(err);
-        //     }
-        //     console.log(response);
-        // });
+
+        api.deleteBook(bookId, (err, response) => {
+            if (err) {
+                return console.error(err);
+            }
+            
+            // Reload the book list after deletion
+            this.refresh();
+        });
     };
 
-    componentDidMount() {
+    refresh = () => {
         api.getSavedBooks((err, response) => {
             if (err) {
                 return console.error(err);
@@ -30,6 +31,10 @@ class Saved extends React.Component {
             this.setState({ books: data });
             console.log(response);
         });
+    }
+
+    componentDidMount() {
+        this.refresh();
     }
 
     render() {
