@@ -1,8 +1,9 @@
 {
   "name": "mern",
   "version": "0.1.0",
-  "description": "Mern Demo",
+  "description": "",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
