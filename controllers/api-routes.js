@@ -1,5 +1,4 @@
 const express = require("express");
-const path = require("path");
 const cors = require("cors");
 const router = express.Router();
 const mongoose = require("mongoose");
@@ -37,11 +36,6 @@ router.delete("/api/books/:id", (req, res) => {
     Book.deleteOne({ bookId: id })
         .then(response => res.json(response))
         .catch(error => res.json(error));
-});
-
-// Route for React app
-router.get("*", function (req, res) {
-    res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
 module.exports = router;
