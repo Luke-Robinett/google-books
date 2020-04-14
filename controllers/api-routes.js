@@ -6,6 +6,7 @@ const Book = require("../models/book");
 
 // Start mongoose
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", { useNewUrlParser: true });
+router.use(cors());
 
 // API Routes
 
