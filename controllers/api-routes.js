@@ -1,11 +1,8 @@
 const express = require("express");
 const path = require("path");
-const cors = require("cors");
 const router = express.Router();
 const mongoose = require("mongoose");
 const Book = require("../models/book");
-
-router.use(cors());
 
 // Start mongoose
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", { useNewUrlParser: true });
