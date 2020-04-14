@@ -33,7 +33,7 @@ router.get("/api/books", (req, res) => {
 // Delete a saved book
 router.delete("/api/books/:id", (req, res) => {
     const { id } = req.params;
-    
+
     Book.deleteOne({ bookId: id })
         .then(response => res.json(response))
         .catch(error => res.json(error));
