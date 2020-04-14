@@ -1,0 +1,100 @@
+2020-04-14T22:45:39.429778+00:00 app[web.1]: > concurrently "nodemon --ignore 'client/*'" "npm run client"
+2020-04-14T22:45:39.429778+00:00 app[web.1]: 
+2020-04-14T22:45:39.434571+00:00 app[web.1]: sh: 1: concurrently: not found
+2020-04-14T22:45:39.437983+00:00 app[web.1]: npm ERR! code ELIFECYCLE
+2020-04-14T22:45:39.438181+00:00 app[web.1]: npm ERR! syscall spawn
+2020-04-14T22:45:39.438317+00:00 app[web.1]: npm ERR! file sh
+2020-04-14T22:45:39.438468+00:00 app[web.1]: npm ERR! errno ENOENT
+2020-04-14T22:45:39.439392+00:00 app[web.1]: npm ERR! google-books@1.0.0 start:dev: `concurrently "nodemon --ignore 'client/*'" "npm run client"`
+2020-04-14T22:45:39.439470+00:00 app[web.1]: npm ERR! spawn ENOENT
+2020-04-14T22:45:39.439580+00:00 app[web.1]: npm ERR!
+2020-04-14T22:45:39.439662+00:00 app[web.1]: npm ERR! Failed at the google-books@1.0.0 start:dev script.
+2020-04-14T22:45:39.439723+00:00 app[web.1]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2020-04-14T22:45:39.444346+00:00 app[web.1]: 
+2020-04-14T22:45:39.444494+00:00 app[web.1]: npm ERR! A complete log of this run can be found in:
+2020-04-14T22:45:39.444609+00:00 app[web.1]: npm ERR!     /app/.npm/_logs/2020-04-14T22_45_39_440Z-debug.log
+2020-04-14T22:45:39.452480+00:00 app[web.1]: npm ERR! code ELIFECYCLE
+2020-04-14T22:45:39.452871+00:00 app[web.1]: npm ERR! errno 1
+2020-04-14T22:45:39.454486+00:00 app[web.1]: npm ERR! google-books@1.0.0 start: `if-env NODE_ENV=production && npm run start:prod || npm run start:dev`
+2020-04-14T22:45:39.454659+00:00 app[web.1]: npm ERR! Exit status 1
+2020-04-14T22:45:39.454880+00:00 app[web.1]: npm ERR!
+2020-04-14T22:45:39.455054+00:00 app[web.1]: npm ERR! Failed at the google-books@1.0.0 start script.
+2020-04-14T22:45:39.455232+00:00 app[web.1]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2020-04-14T22:45:39.461619+00:00 app[web.1]: 
+2020-04-14T22:45:39.461810+00:00 app[web.1]: npm ERR! A complete log of this run can be found in:
+2020-04-14T22:45:39.461905+00:00 app[web.1]: npm ERR!     /app/.npm/_logs/2020-04-14T22_45_39_456Z-debug.log
+2020-04-14T22:45:39.530954+00:00 heroku[web.1]: State changed from starting to crashed
+2020-04-14T22:45:39.535777+00:00 heroku[web.1]: State changed from crashed to starting
+2020-04-14T22:45:52.533114+00:00 app[web.1]: 
+2020-04-14T22:45:52.533131+00:00 app[web.1]: > google-books@1.0.0 start /app
+2020-04-14T22:45:52.533132+00:00 app[web.1]: > if-env NODE_ENV=production && npm run start:prod || npm run start:dev
+2020-04-14T22:45:52.533132+00:00 app[web.1]: 
+2020-04-14T22:45:52.979101+00:00 app[web.1]: 
+2020-04-14T22:45:52.979143+00:00 app[web.1]: > google-books@1.0.0 start:prod /app
+2020-04-14T22:45:52.979144+00:00 app[web.1]: > node server.js
+2020-04-14T22:45:52.979144+00:00 app[web.1]: 
+2020-04-14T22:45:53.135178+00:00 app[web.1]: internal/modules/cjs/loader.js:983
+2020-04-14T22:45:53.135180+00:00 app[web.1]: throw err;
+2020-04-14T22:45:53.135180+00:00 app[web.1]: ^
+2020-04-14T22:45:53.135181+00:00 app[web.1]: 
+2020-04-14T22:45:53.135181+00:00 app[web.1]: Error: Cannot find module 'cors'
+2020-04-14T22:45:53.135182+00:00 app[web.1]: Require stack:
+2020-04-14T22:45:53.135182+00:00 app[web.1]: - /app/controllers/api-routes.js
+2020-04-14T22:45:53.135183+00:00 app[web.1]: - /app/server.js
+2020-04-14T22:45:53.135183+00:00 app[web.1]: at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+2020-04-14T22:45:53.135184+00:00 app[web.1]: at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+2020-04-14T22:45:53.135185+00:00 app[web.1]: at Module.require (internal/modules/cjs/loader.js:1042:19)
+2020-04-14T22:45:53.135185+00:00 app[web.1]: at require (internal/modules/cjs/helpers.js:77:18)
+2020-04-14T22:45:53.135185+00:00 app[web.1]: at Object.<anonymous> (/app/controllers/api-routes.js:2:14)
+2020-04-14T22:45:53.135185+00:00 app[web.1]: at Module._compile (internal/modules/cjs/loader.js:1156:30)
+2020-04-14T22:45:53.135186+00:00 app[web.1]: at Object.Module._extensions..js (internal/modules/cjs/loader.js:1176:10)
+2020-04-14T22:45:53.135186+00:00 app[web.1]: at Module.load (internal/modules/cjs/loader.js:1000:32)
+2020-04-14T22:45:53.135186+00:00 app[web.1]: at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+2020-04-14T22:45:53.135187+00:00 app[web.1]: at Module.require (internal/modules/cjs/loader.js:1042:19) {
+2020-04-14T22:45:53.135187+00:00 app[web.1]: code: 'MODULE_NOT_FOUND',
+2020-04-14T22:45:53.135187+00:00 app[web.1]: requireStack: [ '/app/controllers/api-routes.js', '/app/server.js' ]
+2020-04-14T22:45:53.135188+00:00 app[web.1]: }
+2020-04-14T22:45:53.142239+00:00 app[web.1]: npm ERR! code ELIFECYCLE
+2020-04-14T22:45:53.142567+00:00 app[web.1]: npm ERR! errno 1
+2020-04-14T22:45:53.143804+00:00 app[web.1]: npm ERR! google-books@1.0.0 start:prod: `node server.js`
+2020-04-14T22:45:53.143993+00:00 app[web.1]: npm ERR! Exit status 1
+2020-04-14T22:45:53.144174+00:00 app[web.1]: npm ERR!
+2020-04-14T22:45:53.144295+00:00 app[web.1]: npm ERR! Failed at the google-books@1.0.0 start:prod script.
+2020-04-14T22:45:53.144440+00:00 app[web.1]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2020-04-14T22:45:53.154552+00:00 app[web.1]: 
+2020-04-14T22:45:53.158728+00:00 app[web.1]: npm ERR! A complete log of this run can be found in:
+2020-04-14T22:45:53.158852+00:00 app[web.1]: npm ERR!     /app/.npm/_logs/2020-04-14T22_45_53_145Z-debug.log
+2020-04-14T22:45:53.603927+00:00 app[web.1]: 
+2020-04-14T22:45:53.603940+00:00 app[web.1]: > google-books@1.0.0 start:dev /app
+2020-04-14T22:45:53.603940+00:00 app[web.1]: > concurrently "nodemon --ignore 'client/*'" "npm run client"
+2020-04-14T22:45:53.603941+00:00 app[web.1]: 
+2020-04-14T22:45:53.609224+00:00 app[web.1]: sh: 1: concurrently: not found
+2020-04-14T22:45:53.613272+00:00 app[web.1]: npm ERR! code ELIFECYCLE
+2020-04-14T22:45:53.613273+00:00 app[web.1]: npm ERR! syscall spawn
+2020-04-14T22:45:53.613273+00:00 app[web.1]: npm ERR! file sh
+2020-04-14T22:45:53.613274+00:00 app[web.1]: npm ERR! errno ENOENT
+2020-04-14T22:45:53.614448+00:00 app[web.1]: npm ERR! google-books@1.0.0 start:dev: `concurrently "nodemon --ignore 'client/*'" "npm run client"`
+2020-04-14T22:45:53.614606+00:00 app[web.1]: npm ERR! spawn ENOENT
+2020-04-14T22:45:53.614800+00:00 app[web.1]: npm ERR!
+2020-04-14T22:45:53.614989+00:00 app[web.1]: npm ERR! Failed at the google-books@1.0.0 start:dev script.
+2020-04-14T22:45:53.617002+00:00 app[web.1]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2020-04-14T22:45:53.623764+00:00 app[web.1]: 
+2020-04-14T22:45:53.623991+00:00 app[web.1]: npm ERR! A complete log of this run can be found in:
+2020-04-14T22:45:53.624127+00:00 app[web.1]: npm ERR!     /app/.npm/_logs/2020-04-14T22_45_53_617Z-debug.log
+2020-04-14T22:45:53.636262+00:00 app[web.1]: npm ERR! code ELIFECYCLE
+2020-04-14T22:45:53.636648+00:00 app[web.1]: npm ERR! errno 1
+2020-04-14T22:45:53.638265+00:00 app[web.1]: npm ERR! google-books@1.0.0 start: `if-env NODE_ENV=production && npm run start:prod || npm run start:dev`
+2020-04-14T22:45:53.638413+00:00 app[web.1]: npm ERR! Exit status 1
+2020-04-14T22:45:53.638590+00:00 app[web.1]: npm ERR!
+2020-04-14T22:45:53.638725+00:00 app[web.1]: npm ERR! Failed at the google-books@1.0.0 start script.
+2020-04-14T22:45:53.638851+00:00 app[web.1]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2020-04-14T22:45:53.645358+00:00 app[web.1]: 
+2020-04-14T22:45:53.645574+00:00 app[web.1]: npm ERR! A complete log of this run can be found in:
+2020-04-14T22:45:53.645701+00:00 app[web.1]: npm ERR!     /app/.npm/_logs/2020-04-14T22_45_53_639Z-debug.log
+2020-04-14T22:45:53.757087+00:00 heroku[web.1]: State changed from starting to crashed
+2020-04-14T22:46:35.765670+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=ljr-gbs.herokuapp.com request_id=e48fe691-ca4b-4a02-8543-742ae7d29049 fwd="24.20.52.64" dyno= connect= service= status=503 bytes= protocol=https
+2020-04-14T22:46:35.992549+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=ljr-gbs.herokuapp.com request_id=22935dc6-2623-444b-975a-bfe4d76da672 fwd="24.20.52.64" dyno= connect= service= status=503 bytes= protocol=https
+2020-04-14T22:47:11.685079+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=ljr-gbs.herokuapp.com request_id=d0e016bc-4c5c-4ad8-99cb-2becbe0d5e27 fwd="24.20.52.64" dyno= connect= service= status=503 bytes= protocol=https
+2020-04-14T22:47:11.968844+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=ljr-gbs.herokuapp.com request_id=db9195e7-98b2-489d-9ae1-8ded76eb940f fwd="24.20.52.64" dyno= connect= service= status=503 bytes= protocol=https
+2020-04-14T22:52:56.976384+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=ljr-gbs.herokuapp.com request_id=332971f8-5f4c-4c92-b53d-1da602bdcecd fwd="24.20.52.64" dyno= connect= service= status=503 bytes= protocol=https
+2020-04-14T22:52:57.218258+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=ljr-gbs.herokuapp.com request_id=a271da59-3f4e-4ea9-9889-7c1966ef9849 fwd="24.20.52.64" dyno= connect= service= status=503 bytes= protocol=https
